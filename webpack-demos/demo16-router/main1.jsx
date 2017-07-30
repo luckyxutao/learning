@@ -2,7 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
 require('./app.css');
-
+const routerThen = (app, callback, [component, model]) => {
+    app.model(model.default || model)
+    callback(null, component.default || component)
+}
 var App = React.createClass({
   render: function () {
     return (
@@ -32,15 +35,15 @@ var Dashboard = React.createClass({
 });
 
 const Inbox = (location, callback) => {
-  require.ensure([], require => {
-    callback(null,require('./inbox.jsx').default)
-  })  
+    System.import('./inbox.jsx').then(component => {
+        callback(null, component.default || component)
+    })
 }
 
 const Calendar = (location, callback) => {
-  require.ensure([], require => {
-    callback(null,require('./calendar.jsx').default)
-  })  
+    System.import('./calendar.jsx').then(component => {
+        callback(null, component.default || component)
+    })
 }
 render((
   <Router history={browserHistory}>
