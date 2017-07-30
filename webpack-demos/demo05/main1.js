@@ -1,0 +1,14 @@
+// const React = require('react');
+// const ReactDOM = require('react-dom');
+// import './app.scss'
+// ReactDOM.render(
+//   <h1>Hello, world!</h1>,
+//   document.querySelector('#wrapper')
+// );
+var img1 = document.createElement("img");
+img1.src = require("./big.png");
+document.body.appendChild(img1);
+
+var img2 = document.createElement("img");
+img2.src = require("./big.png");
+document.body.appendChild(img2);

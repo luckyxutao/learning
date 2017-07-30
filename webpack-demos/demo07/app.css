@@ -1,0 +1,12 @@
+.title {
+  color: red;
+}
+
+.body{
+    composes:title;
+    font-size:20px;
+}
+
+:global(.f3) {
+  color: green;
+}
