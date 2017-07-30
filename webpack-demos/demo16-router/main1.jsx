@@ -1,7 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, Link, IndexRoute, browserHistory } from 'react-router';
-
 require('./app.css');
 
 var App = React.createClass({
@@ -32,33 +31,24 @@ var Dashboard = React.createClass({
   }
 });
 
-var Inbox = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <p>Inbox</p>
-      </div>
-    );
-  }
-});
+const Inbox = (location, callback) => {
+  require.ensure([], require => {
+    callback(null,require('./inbox.jsx').default)
+  })  
+}
 
-var Calendar = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <p>Calendar</p>
-      </div>
-    );
-  }
-});
-
+const Calendar = (location, callback) => {
+  require.ensure([], require => {
+    callback(null,require('./calendar.jsx').default)
+  })  
+}
 render((
   <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Dashboard}/>
       <Route path="app" component={Dashboard}/>
-      <Route path="inbox" component={Inbox}/>
-      <Route path="calendar" component={Calendar}/>
+      <Route path="inbox" getComponent={Inbox}/>
+      <Route path="calendar" getComponent={Calendar}/>
       <Route path="*" component={Dashboard}/>
     </Route>
   </Router>
