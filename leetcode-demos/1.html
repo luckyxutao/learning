@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+    var twoSum = function(nums,target){
+        var dict = {};
+        var result;
+        for (var i = 0; i < nums.length; i++) {
+            var num = nums[i];
+            if((target - num) in dict){
+                var idx2 = dict[target-num];
+                if(idx2 !== i){
+                    console.log('finder')
+                    result = [i,dict[target-num]];
+                    return result;
+                }
+            }else {
+                dict[num] = i;
+            }
+        }
+        return result;
+    }
+    var result = twoSum([2,4,1],6)
+    console.log(result)
+</script>
+</body>
+</html>
