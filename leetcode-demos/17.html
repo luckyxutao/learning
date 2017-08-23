@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+/**
+ * @param {string} digits
+ * @return {string[]}
+ */
+var letterCombinations = function(string) {
+    let dict = {
+        2 : 'abc',
+        3 : 'def',
+        4 : 'ghi',
+        5 : 'jkl',
+        6 : 'mno',
+        7 : 'pqrs',
+        8 : 'tuv',
+        9 : 'wxyz'
+    };
+    let res = [];
+    // Helper function
+    function dfs(string, index, temp){
+        if (temp.length === string.length){
+            // res.append("".join(x for x in temp))
+            // temp.map((v,i)=>{
+            //     res.push(v);
+            // })
+            res.push(temp.join(''))
+            return;
+
+        }
+        let digt = dict[string[index]];
+        for (var i = 0; i < digt.length; i++) {
+            temp.push(digt.charAt(i))
+            dfs(string, index+1, temp)
+            temp.pop()
+        }
+        return res;
+    }
+    // # Function Call
+    dfs(string, 0, [])
+    return res;
+};
+let result = letterCombinations('234');
+console.log(result)
+</script>
+</body>
+</html>
