@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+
+<script src="./str.js"></script>
+<script type="text/javascript">
+function makeFunc() {
+  var name = "Mozilla";
+  function displayName() {
+    alert(name);
+  }
+  return displayName;
+}
+
+var myFunc = makeFunc();
+window.setTimeout(function(){
+    myFunc();
+})
+// for(var i = 0; i < 5; i++) {
+//     greet(i);
+// }
+
+// function greet(ffff){
+//    setTimeout(function() {
+//        console.log(ffff);  
+//    }, 1000); 
+// }
+// var myObject = {
+//     foo: "bar",
+//     func: function() {
+//         var self = this;
+//         console.log("outer func:  this.foo = " + this.foo);
+//         console.log("outer func:  self.foo = " + self.foo);
+//         var fun2 = function(){
+//             console.log(this);
+//         }
+//         fun2();
+//         // (function() {
+//         //     console.log("inner func:  this.foo = " + this.foo);
+//         //     console.log("inner func:  self.foo = " + self.foo);
+//         // }());
+//     }
+// };
+// myObject.func();
+
+
+// (function(){
+//   var a = b = 3;
+// })();
+
+// console.log("a defined? " + (typeof a !== 'undefined'));   
+// console.log("b defined? " + (typeof b !== 'undefined'));
+
+
+ // //以对象 数组为代表的引用类型
+ // var arr= [1,2,3,4];
+ // var arr2 = [].concat(arr);
+ // arr2.push(5)
+ // console.log(arr2)
+
+ // var a = true;
+ // var b = a;
+
+ // b = false;
+ // console.log(a,b)
+
+
+
+// function Dialog(){
+//     this.members.push('a')
+// }
+// Dialog.prototype.members = [];
+// var b = new Dialog();
+// var c = new Dialog();
+// console.log(c.members === b.members)
+// function my(){
+//     this.p.pid++;
+// }
+// my.prototype.p = { pid:0}
+// my.prototype.getNum = function(num){
+//     return this.p.pid + num;
+// }
+// function bb(a,b){
+//     return [1,2,3,4,5]
+// }
+
+// var sult = bb();
+// if(map)
+// (function(a,b){
+//     alert(a)
+// }(2,3))
+
+//result.a
+// var obj1 = new my();
+// var obj2 = new my();
+// console.log(obj1.p.pid)
+// console.log(obj2.p.pid)
+// console.log(obj1.getNum(1) + obj2.getNum(2))
+// /
+// var func = (function(a){
+//     this.a = a;
+//     return function(a){
+//         a += this.a;
+//         return a;
+//     }
+// })(function(a,b){
+//     return a;
+// }(1,2));
+
+// var b = func(4)
+// console.log(b);
+</script>
+</body>
+</html>

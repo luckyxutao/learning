@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>涟漪按钮</title>
+        <style type="text/css">
+            :root {
+                --color-ripple: rgba(255,255,255,0.8);
+            }
+
+            body {
+                background: #36353c;
+            }
+
+            .container {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                height: 50px;
+                width: 200px;
+                margin: auto;
+            }
+            *[data-animation="ripple"] {
+                position: relative; 
+                height: 100%;
+                width: 100%;
+                display: block;
+                outline: none;
+                padding: 20px;
+                color: #fff;
+                text-transform: uppercase;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 14px;
+                font-family: roboto, helvetica;
+                font-weight: 200;
+                letter-spacing: 1px;
+                text-decoration: none;
+                box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                /*No.1*/
+                /*开始写代码，请实现按钮背景渐变效果，从左下到右上由0透明度的粉色#e570e7到100%透明度的淡蓝色#79f1fc*/
+                
+                /*end_code*/
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            *[data-animation="ripple"]:focus {
+                outline: none;
+            }
+
+            *[data-animation="ripple"]::selection {
+                background: transparent;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <a data-animation="ripple">Click Me</a>
+        </div>
+        <script type="text/javascript">
+            // 按照要求设计一个按钮，实现鼠标点击后出现的涟漪特效，由鼠标点击点向四周扩散
+            // const isMobile = window.navigator.userAgent.match(/Mobile/) && window.navigator.userAgent.match(/Mobile/)[0] === "Mobile";
+            // const event = isMobile ? "touchstart" : "click";
+            // const button = document.querySelectorAll('*[data-animation="ripple"]'),
+            //             container = document.querySelector(".container");
+
+            // for (var i = 0; i < button.length; i++) {
+            //     const currentBtn = button[i];
+            //     currentBtn.addEventListener(event, function(e) {
+            //         e.preventDefault();
+            //         const button = e.target,
+            //                     rect = button.getBoundingClientRect(),
+            //                     originalBtn = this,
+            //                     btnHeight = rect.height,
+            //                     btnWidth = rect.width;
+            //         let posMouseX = 0,
+            //                 posMouseY = 0;
+            //         /*No.1*/
+            //         /*开始写代码，请实现确定鼠标位置*/
+            //         if
+
+
+
+
+
+
+            //         /*end_code*/
+                    
+            //         const baseCSS =  `position: absolute;
+            //                         width: ${btnWidth * 2}px;
+            //                         height: ${btnWidth * 2}px;
+            //                         transition: all linear 700ms;
+            //                         transition-timing-function:cubic-bezier(0.250, 0.460, 0.450, 0.940);
+            //                         border-radius: 50%;
+            //                         background: var(--color-ripple);
+            //                         top:${posMouseY - btnWidth}px;
+            //                         left:${posMouseX - btnWidth}px;
+            //                         pointer-events: none;
+            //                         transform:scale(0)`
+            //         var rippleEffect = document.createElement("span");
+            //         rippleEffect.style.cssText = baseCSS;
+            //         currentBtn.style.overflow = "hidden";
+            //         this.appendChild(rippleEffect);
+            //         /*No.2*/
+            //         /*开始写代码，请实现开始动画*/
+                    
+
+
+            //         /*end_code*/
+            //         setTimeout(function() {
+            //             rippleEffect.remove();
+            //         }, 700);
+            //     })
+            // }
+        </script>
+    </body>
+</html>

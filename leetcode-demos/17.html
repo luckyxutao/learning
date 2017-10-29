@@ -27,13 +27,8 @@ var letterCombinations = function(string) {
     // Helper function
     function dfs(string, index, temp){
         if (temp.length === string.length){
-            // res.append("".join(x for x in temp))
-            // temp.map((v,i)=>{
-            //     res.push(v);
-            // })
             res.push(temp.join(''))
             return;
-
         }
         let digt = dict[string[index]];
         for (var i = 0; i < digt.length; i++) {
