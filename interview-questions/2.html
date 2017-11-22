@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+function extend(objA,objB){
+    for(var key in objB){
+        if(objB.hasOwnProperty(key)){
+            objA[key] = objB[key];
+        }
+    }
+    return objA;
+}
+var para1 = {
+    a : {
+        c : 5,
+        d : {
+            g : 1
+        }
+    }
+}
+var c = extend({},para1)
+console.log(c);
+</script>
+</body>
+</html>

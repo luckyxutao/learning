@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+    //将敏感词改变字体颜色
+    var yellowWords = ['习近平','周永康','6.4','中共'];
+    var content = '是看不习近平到函数的周永康定义。尽管在大多中共数教科书中内联6.4函数的声';
+    var regText = yellowWords.join('|').replace('.','\.');
+    var reg = new RegExp(regText,'g');
+    var newText = content.replace(reg,(matched)=>{
+        return `<span>${matched}</span>`
+    })
+    console.log(newText);
+</script>
+</body>
+</html>
