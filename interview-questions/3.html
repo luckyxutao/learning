@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+
+function PubSub(){
+    this.__events__ = {};
+}
+
+PubSub.prototype = {
+    constructor : PubSub,
+    bind : function(key,func){
+        if(!this.__events__[key]){
+            this.__events__[key] = [];
+        }
+        this.__events__[key].push(func);
+
+    },
+    unbind : function(key,func){
+        var targets = this.__events__[key];
+        if (targets) {
+            var index = targets.indexOf(func);
+            if(index>-1){
+                targets.splice(index,1);
+            }
+        }
+    },
+    trigger: function(key){
+        var targets = this.__events__[key];
+        if(targets){
+            var args = [].slice.call(arguments,1);
+            for(var i=0;i<targets.length;i++){
+                targets[i].apply(this,args);
+            }
+        }
+    }
+}
+
+var iPubSub = new PubSub();
+iPubSub.bind('click',function(a,b,c,d,e){
+    console.log('111', a, b, c, d, e);
+});
+
+var listener2 = function (a, b, c, d, e) {
+        console.log('222', a, b, c, d, e);
+}
+iPubSub.bind('click', listener2);
+
+iPubSub.unbind('click',listener2);//删除一个监听
+
+</script>
+</body>
+</html>
