@@ -52,6 +52,15 @@ function deepCopy(target,source){
     return target;
 }
 
+
+function deepExtend(target){
+    let args = [].slice.call(arguments,1);
+    args.forEach((v,i)=>{
+        deepCopy(target,v);
+    });
+    return target;
+}
+
 var bb = {
     k : 10,
     obj : [{
@@ -67,7 +76,7 @@ var bb = {
     }
 }
 
-var cc = deepCopy({},bb);
+var cc = deepExtend({},bb,{k:2222});
 cc.obj[0].f = 100;
 cc.obj2.sub.sub1.f = 55;
 cc.obj2.sub.f = 33;
