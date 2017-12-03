@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+//浅复制
+function shallowCopy(target,source){
+    for(let key in source){
+        if(source.hasOwnProperty(key)){
+            target[key] = source[key];
+        }
+    }
+    return target;
+}
+// var obj = {
+//     a: 1,
+//     b: 2,
+//     c: {
+//         f: 'w'
+//     }
+// }
+
+// var tar = shallowCopy({}, obj);
+// tar.c.f = 55;
+
+
+var getType =function( obj){
+    return Object.prototype.toString.call(obj);
+}
+//深复制
+function deepCopy(target,source){
+    for(let key in source){
+        if(source.hasOwnProperty(key)){
+            let typeString = getType(source[key]);
+            let isArray = typeString === '[object Array]';
+            let isPlanObject = typeString === '[object Object]';
+            if(isArray || isPlanObject){
+                if (isArray) {
+                    target[key] = [];
+                } else if (isPlanObject) {
+                    target[key] = {};
+                }
+                target[key] = deepCopy(target[key],source[key]);
+            } else {
+                target[key] = source[key];
+            }
+        }
+    }
+    return target;
+}
+
+var bb = {
+    k : 10,
+    obj : [{
+        f : 5
+    }],
+    obj2 : {
+        sub : {
+            f : 3,
+            sub1 : {
+                f : 1
+            }
+        }
+    }
+}
+
+var cc = deepCopy({},bb);
+cc.obj[0].f = 100;
+cc.obj2.sub.sub1.f = 55;
+cc.obj2.sub.f = 33;
+console.log(cc);
+console.log('olddd')
+console.log(bb);
+
+</script>
+</body>
+</html>
