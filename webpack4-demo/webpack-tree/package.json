@@ -5,7 +5,9 @@
   "main": "webpack.dll.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "gen-dll": "npx webpack --config webpack.dll.config.js --mode development"
+    "gen-dll": "npx webpack --config webpack.dll.config.js --mode development",
+    "build" : "webpack --display-used-exports --optimize-minimize",
+    "displayUnused" : "npx webpack --display-used-exports"
   },
   "keywords": [],
   "author": "",
